@@ -1,8 +1,12 @@
 const common = require('./webpack.common');
 const { merge } = require('webpack-merge');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = merge(common, {
   mode: 'production',
+  output: {
+    clean: true,
+},
   devtool: 'source-map',
   module: {
     rules: [
@@ -16,8 +20,17 @@ module.exports = merge(common, {
               presets: ['@babel/preset-env'],
             },
           },
+          {
+            test: /\.css$/,
+            use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        },
         ],
       },
     ],
   },
+  lugins: [
+    new MiniCssExtractPlugin({
+        filename: 'app.bundle.css',
+    }),
+],
 });
