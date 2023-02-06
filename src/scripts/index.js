@@ -42,6 +42,23 @@ const main = () => {
         }
     });
 
+    // Search Bar after click #btn-search
+    const search = document.querySelector('#search');
+    const btnSearch = document.querySelector('#btn-search');
+    btnSearch.addEventListener('click', (e) => {
+        e.preventDefault();
+        const searchValue = search.value.toLowerCase();
+        const items = document.querySelectorAll('.item-list');
+        items.forEach((item) => {
+            const name = item.querySelector('.item_title h3').textContent.toLowerCase();
+            if (name.indexOf(searchValue) !== -1) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+
     // Menu
     const menuOpen = document.querySelectorAll('a.open_close');
     menuOpen.forEach((menu) => {
