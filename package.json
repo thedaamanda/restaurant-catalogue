@@ -4,7 +4,7 @@
   "description": "Dicoding Front-End Web Developer Expert - Submission Katalog Restoran",
   "main": "index.js",
   "scripts": {
-    "start-dev": "webpack-dev-server --port 8080 --config webpack.dev.js",
+    "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint ./src",
     "test": "karma start"
@@ -30,7 +30,6 @@
     "eslint": "^8.17.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
-    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "jasmine-ajax": "^4.0.0",
     "jasmine-core": "^4.2.0",

@@ -37,22 +37,12 @@ module.exports = {
                     },
                 ],
             },
-            {
-                test: /\.(png|jpe?g|gif)$/i,
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[ext]',
-                    outputPath: 'images/',
-                    publicPath: 'images/',
-                },
-            },
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.resolve(__dirname, 'src/templates/index.html'),
-            favicon: path.resolve(__dirname, 'src/public/images/favicon.ico'),
         }),
         new CopyWebpackPlugin({
             patterns: [

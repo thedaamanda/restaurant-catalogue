@@ -1,4 +1,9 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
+import restaurants from '../DATA.json';
 
-console.log('Hello Coders! :)');
+const main = () => {
+    console.log(restaurants);
+};
+
+main();
