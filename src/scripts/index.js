@@ -1,6 +1,6 @@
 import 'regenerator-runtime'; /* for async await transpile */
-import '../styles/main.scss';
-import '../styles/responsive.scss';
+import '../styles/main.css';
+import '../styles/responsive.css';
 import restaurants from '../DATA.json';
 
 const main = () => {
@@ -11,7 +11,7 @@ const main = () => {
             <div class="item-list">
                 <div class="strip">
                     <figure>
-                        <img src="${restaurant.pictureId}" data-src="${restaurant.pictureId}" class="img-fluid lazy" alt="${restaurant.name}">
+                        <img src="${restaurant.pictureId}" class="img-fluid lazy" alt="${restaurant.name}">
                         <a href="#" class="strip_info">
                             <small>Resto</small>
                             <div class="item_title">
@@ -31,6 +31,46 @@ const main = () => {
             </div>
         `;
     });
+
+    // Top Rated Content
+    const topRatedList = document.querySelector('#restaurant-top-rated-list');
+    const topRated = restaurants.restaurants.sort((a, b) => b.rating - a.rating).slice(0, 6);
+    let i = 0;
+
+    topRated.forEach((restaurant) => {
+        if (topRated.indexOf(restaurant) === 0 || topRated.indexOf(restaurant) === 3) {
+            i = topRated.indexOf(restaurant) == 0 ? 1 : 2;
+
+            topRatedList.innerHTML += `
+                <div class="col-6">
+                    <div class="list_top_rated">
+                        <ul class="list_loop_${i}">
+                        `;
+        }
+
+        document.querySelector(`.list_top_rated ul.list_loop_${i}`).innerHTML += `
+            <li>
+                <a href="#">
+                    <figure>
+                        <img src="${restaurant.pictureId}" alt="${restaurant.name}" class="lazy" width="350" height="233">
+                    </figure>
+                    <span class="rating">${restaurant.rating}</span>
+                    <em>${restaurant.city}</em>
+                    <h3>${restaurant.name}</h3>
+                    <small>${restaurant.description}</small>
+                </a>
+            </li>
+        `;
+
+        if (topRated.indexOf(restaurant) === 2 || topRated.indexOf(restaurant) === 5) {
+            topRatedList.innerHTML += `
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+    });
+
 
     // Sticky Header
     const header = document.querySelector('header');
