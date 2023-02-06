@@ -1,6 +1,6 @@
 import 'regenerator-runtime'; /* for async await transpile */
-import '../styles/main.css';
-import '../styles/responsive.css';
+import '../styles/main.scss';
+import '../styles/responsive.scss';
 import restaurants from '../DATA.json';
 
 const main = () => {
@@ -70,7 +70,6 @@ const main = () => {
             `;
         }
     });
-
 
     // Sticky Header
     const header = document.querySelector('header');
