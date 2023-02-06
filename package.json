@@ -40,6 +40,8 @@
     "karma-sourcemap-loader": "^0.3.8",
     "karma-webpack": "^5.0.0",
     "mini-css-extract-plugin": "^2.7.2",
+    "sass": "^1.58.0",
+    "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.73.0",
     "webpack-cli": "^4.10.0",
