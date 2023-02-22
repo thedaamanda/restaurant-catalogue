@@ -5,6 +5,12 @@ $background-color_1: #fff;
 $background-color_2: #f9f9f9;
 $background-color_3: #e54750;
 
+@media only screen and (max-width: 1200px) {
+    .container {
+        max-width: 90%;
+    }
+}
+
 @media only screen and (max-width: 991px) {
 	.container {
 		max-width: 90%;
@@ -170,7 +176,7 @@ $background-color_3: #e54750;
 
 @media only screen and (max-width: 768px) {
 	.container {
-		max-width: 100%;
+		max-width: 90%;
 	}
 	.main_title {
 		h2 {
@@ -185,6 +191,15 @@ $background-color_3: #e54750;
 		grid-template-columns: 1fr;
 		grid-column-gap: 0px;
 	}
+    .notification {
+        i {
+            display: none;
+        }
+        h3 {
+            font-size: 20px;
+            font-size: 1.25rem;
+        }
+    }
 }
 
 @media only screen and (max-width: 575px) {
@@ -224,7 +239,7 @@ $background-color_3: #e54750;
 
 @media screen and (min-width: 1200px) {
 	.container {
-		max-width: 1200px;
+		max-width: 1140px;
 	}
 	.wrapper {
 		max-width: 1200px;

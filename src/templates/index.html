@@ -13,6 +13,7 @@
     <body>
         <a href="#content" class="skip-link">Skip to content</a>
 
+        <!-- Header -->
         <header class="app-bar">
             <div class="wrapper">
                 <div class="layer"></div>
@@ -46,64 +47,16 @@
                         <img src="./images/logo_sticky.svg" width="162" height="35" alt="Logo Website" class="logo_sticky">
                     </a>
                     <ul class="nav-list">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="#">Favorite</a></li>
+                        <li><a href="/#">Home</a></li>
+                        <li><a href="/#/favorite">Favorite</a></li>
                         <li><a href="https://www.linkedin.com/in/muhammad-theda-amanda-3ba6ab259/" target="_blank" rel="noreferrer">About Us</a></li>
                     </ul>
                 </nav>
             </div>
         </header>
 
-        <main>
-            <!-- Hero -->
-            <div id="jumbotron" class="hero image">
-                <div class="opacity-mask">
-                    <div class="container">
-                        <div class="row-center">
-                            <div class="hero-title">
-                                <h1 tabindex="0">Skuy App</h1>
-                                <p tabindex="0">Discover your next culinary adventure with the restaurant app finder.</p>
-                                <form method="post" action="#">
-                                    <div class="row-search no-gutters custom-search-input">
-                                        <div class="col-input">
-                                            <div class="forms">
-                                                <input class="form-input no_border_r" type="text" id="search" placeholder="Search data by name" autocomplete="off">
-                                            </div>
-                                        </div>
-                                        <div class="col-search">
-                                            <button class="btn gradient" id="btn-search" type="submit">Search</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Main Content -->
-            <section id="content" class="restaurant-latest">
-                <!-- Explore Restaurant -->
-                <div class="container margin_30_60">
-                    <div class="main_title center">
-                        <span><em></em></span>
-                        <h2 tabindex="0">Explore Restaurants</h2>
-                        <p tabindex="0">Find the best restaurant in your country</p>
-                    </div>
-                    <div class="list" id="restaurant-list"></div>
-                </div>
-                <!-- Top Rating Restaurant -->
-                <div class="bg_gray">
-                    <div class="container margin_60_40">
-                        <div class="main_title">
-                            <span><em></em></span>
-                            <h2 tabindex="0">Top Rated Restaurants</h2>
-                            <p tabindex="0">Discover Delicious - Find Your Top-Rated Restaurant Today!</p>
-                        </div>
-                        <div class="row-rated add_bottom_25" id="restaurant-top-rated-list"></div>
-                    </div>
-                </div>
-            </section>
-        </main>
+        <!-- Main Content -->
+        <main id="mainContent"></main>
 
         <!-- Footer -->
         <footer tabindex="0">
