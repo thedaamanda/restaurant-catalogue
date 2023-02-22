@@ -1,0 +1,36 @@
+{
+    "id": "restaurant-catalogue-app",
+    "start_url": "./index.html",
+    "name": "Restaurant Catalogue App",
+    "short_name": "Resto Catalogue App",
+    "description": "Find your best resto",
+    "display": "standalone",
+    "background_color": "#FFFFFF",
+    "theme_color": "#E54750",
+    "icons": [
+        {
+            "src": "./icons/icon-57x57.png",
+            "sizes": "57x57",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "./icons/icon-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "./icons/icon-114x114.png",
+            "sizes": "114x114",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "./icons/icon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
+}
