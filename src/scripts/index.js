@@ -5,18 +5,18 @@ import '../styles/responsive.scss';
 import App from './views/app';
 
 const app = new App({
-    button: document.querySelectorAll('a.open_close'),
-    drawer: document.querySelector('.main-menu'),
-    layer: document.querySelector('.layer'),
-    content: document.querySelector('#mainContent'),
-    header: document.querySelector('header'),
-    scroll: document.querySelector('.to-top'),
+  button: document.querySelectorAll('a.open_close'),
+  drawer: document.querySelector('.main-menu'),
+  layer: document.querySelector('.layer'),
+  content: document.querySelector('#mainContent'),
+  header: document.querySelector('header'),
+  scroll: document.querySelector('.to-top'),
 });
 
 window.addEventListener('hashchange', () => {
-    app.renderPage();
+  app.renderPage();
 });
 
 window.addEventListener('load', () => {
-    app.renderPage();
+  app.renderPage();
 });

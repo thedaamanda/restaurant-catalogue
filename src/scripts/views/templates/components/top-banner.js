@@ -1,12 +1,12 @@
-import RestaurantApiSource from "../../../data/restaurant-api-source";
+import RestaurantApiSource from '../../../data/restaurant-api-source';
 
 class TopBanner extends HTMLElement {
-    connectedCallback() {
-        this.render();
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    render() {
-        this.innerHTML = `
+  render() {
+    this.innerHTML = `
             <div id="jumbotron" class="hero image">
                 <div class="opacity-mask">
                     <div class="container">
@@ -30,21 +30,21 @@ class TopBanner extends HTMLElement {
                 </div>
             </div>
         `;
-    }
+  }
 
-    async _searchRestaurant() {
-        const searchElement = document.querySelector('input[name=query]');
-        const searchButtonElement = document.querySelector('#btn-search');
+  searchRestaurant() {
+    const searchElement = document.querySelector('input[name=query]');
+    const searchButtonElement = document.querySelector('#btn-search');
 
-        searchButtonElement.addEventListener('click', async () => {
-            const query = searchElement.value;
-            const restaurants = await RestaurantApiSource.searchRestaurant(query);
-            const restaurantListElement = document.querySelector('restaurant-list');
-            restaurantListElement.classList.add('list');
-            restaurantListElement.id = 'restaurant-list';
-            restaurantListElement.restaurants = restaurants.restaurants;
-        });
-    }
+    searchButtonElement.addEventListener('click', async () => {
+      const query = searchElement.value;
+      const restaurants = await RestaurantApiSource.searchRestaurant(query);
+      const restaurantListElement = document.querySelector('restaurant-list');
+      restaurantListElement.classList.add('list');
+      restaurantListElement.id = 'restaurant-list';
+      restaurantListElement.restaurants = restaurants.restaurants;
+    });
+  }
 }
 
 customElements.define('top-banner', TopBanner);

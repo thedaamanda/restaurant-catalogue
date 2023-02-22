@@ -11,21 +11,30 @@ class RestaurantTopRatedList extends HTMLElement {
     let i = 0;
 
     this._restaurants.forEach((restaurant) => {
-        if (this._restaurants.indexOf(restaurant) === 0 || this._restaurants.indexOf(restaurant) === 3) {
-            i = this._restaurants.indexOf(restaurant) === 0 ? 1 : 2;
+      if (
+        this._restaurants.indexOf(restaurant) === 0
+                || this._restaurants.indexOf(restaurant) === 3
+      ) {
+        i = this._restaurants.indexOf(restaurant) === 0 ? 1 : 2;
 
-            this.innerHTML += `
+        this.innerHTML += `
                       <div class="col-6">
                           <div class="list_top_rated">
                               <ul class="list_loop_${i}">
                               `;
-          }
+      }
 
-          document.querySelector(`.list_top_rated ul.list_loop_${i}`).innerHTML += `
+      document.querySelector(
+        `.list_top_rated ul.list_loop_${i}`,
+      ).innerHTML += `
                   <li>
                       <a href="/#/detail/${restaurant.id}">
                           <figure>
-                              <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}" class="lazy" width="350" height="233">
+                              <img src="${
+  CONFIG.BASE_IMAGE_URL + restaurant.pictureId
+}" alt="${
+  restaurant.name
+}" class="lazy" width="350" height="233">
                           </figure>
                           <span class="rating">${restaurant.rating}</span>
                           <em>${restaurant.city}</em>
@@ -35,13 +44,16 @@ class RestaurantTopRatedList extends HTMLElement {
                   </li>
               `;
 
-          if (this._restaurants.indexOf(restaurant) === 2 || this._restaurants.indexOf(restaurant) === 5) {
-            this.innerHTML += `
+      if (
+        this._restaurants.indexOf(restaurant) === 2
+                || this._restaurants.indexOf(restaurant) === 5
+      ) {
+        this.innerHTML += `
                               </ul>
                           </div>
                       </div>
                   `;
-          }
+      }
     });
   }
 }

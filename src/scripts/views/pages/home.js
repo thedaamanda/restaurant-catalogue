@@ -1,11 +1,11 @@
-import RestaurantApiSource from "../../data/restaurant-api-source";
+import RestaurantApiSource from '../../data/restaurant-api-source';
 import '../templates/components/top-banner';
 import '../templates/components/restaurant-list';
 import '../templates/components/restaurant-top-rated-list';
 
 const Home = {
-    async render() {
-        return `
+  async render() {
+    return `
             <top-banner></top-banner>
             <section id="content" class="restaurant-latest">
                 <div class="container margin_30_60">
@@ -28,24 +28,24 @@ const Home = {
                 </div>
             </section>
         `;
-    },
+  },
 
-    async afterRender() {
-        const restaurants = await RestaurantApiSource.listRestaurant();
-        const restaurantListElement = document.querySelector('restaurant-list');
-        restaurantListElement.classList.add('list');
-        restaurantListElement.id = 'restaurant-list';
-        restaurantListElement.restaurants = restaurants;
+  async afterRender() {
+    const restaurants = await RestaurantApiSource.listRestaurant();
+    const restaurantListElement = document.querySelector('restaurant-list');
+    restaurantListElement.classList.add('list');
+    restaurantListElement.id = 'restaurant-list';
+    restaurantListElement.restaurants = restaurants;
 
-        const topRatedRestaurants = restaurants.sort((a, b) => b.rating - a.rating).slice(0, 6);
-        const restaurantTopRatedListElement = document.querySelector('restaurant-top-rated-list');
-        restaurantTopRatedListElement.classList.add('row-rated', 'add_bottom_25');
-        restaurantTopRatedListElement.id = 'restaurant-top-rated-list';
-        restaurantTopRatedListElement.restaurants = topRatedRestaurants;
+    const topRatedRestaurants = restaurants.sort((a, b) => b.rating - a.rating).slice(0, 6);
+    const restaurantTopRatedListElement = document.querySelector('restaurant-top-rated-list');
+    restaurantTopRatedListElement.classList.add('row-rated', 'add_bottom_25');
+    restaurantTopRatedListElement.id = 'restaurant-top-rated-list';
+    restaurantTopRatedListElement.restaurants = topRatedRestaurants;
 
-        const topBannerElement = document.querySelector('top-banner');
-        topBannerElement._searchRestaurant();
-    },
-}
+    const topBannerElement = document.querySelector('top-banner');
+    topBannerElement.searchRestaurant();
+  },
+};
 
 export default Home;

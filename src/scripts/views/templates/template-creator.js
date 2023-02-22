@@ -1,15 +1,17 @@
 import CONFIG from '../../globals/config';
 
 const createRestaurantItemTemplate = (restaurantItem) => {
-    const { id, pictureId, name, city, rating } = restaurantItem;
+  const {
+    id, pictureId, name, city, rating,
+  } = restaurantItem;
 
-    return `
+  return `
         <div class="item-list">
             <div class="strip">
                 <figure>
                     <img src="${
-                        CONFIG.BASE_IMAGE_URL + pictureId
-                    }" class="img-fluid lazy" alt="${name}">
+  CONFIG.BASE_IMAGE_URL + pictureId
+}" class="img-fluid lazy" alt="${name}">
                     <a href="/#/detail/${id}" class="strip_info">
                         <small>Resto</small>
                         <div class="item_title">
@@ -31,21 +33,21 @@ const createRestaurantItemTemplate = (restaurantItem) => {
 };
 
 const createRestaurantDetailTemplate = (restaurantDetail) => {
-    const {
-        pictureId,
-        name,
-        city,
-        rating,
-        address,
-        description,
-        categories,
-        menus,
-    } = restaurantDetail;
+  const {
+    pictureId,
+    name,
+    city,
+    rating,
+    address,
+    description,
+    categories,
+    menus,
+  } = restaurantDetail;
 
-    return `
+  return `
         <div class="hero_in detail_page background-image" style="background:#ededed url(${
-            CONFIG.BASE_IMAGE_URL + pictureId
-        }) no-repeat center center; background-size:cover;">
+  CONFIG.BASE_IMAGE_URL + pictureId
+}) no-repeat center center; background-size:cover;">
             <div class="opacity-mask">
                 <div class="container margin_30_60">
                     <div class="main_info">
@@ -56,11 +58,10 @@ const createRestaurantDetailTemplate = (restaurantDetail) => {
                                 ${city} - ${address}
                                 <ul class="tags">
                                     ${categories
-                                        .map(
-                                            (category) =>
-                                                `<li><div>${category.name}</div></li>`
-                                        )
-                                        .join('')}
+    .map(
+      (category) => `<li><div>${category.name}</div></li>`,
+    )
+    .join('')}
                                 </ul>
                                 <p>${description}</p>
                             </div>
@@ -77,8 +78,8 @@ const createRestaurantDetailTemplate = (restaurantDetail) => {
                             <h4>Food Menu</h4>
                             <div class="row">
                                 ${menus.foods
-                                    .map(
-                                        (food) => `
+    .map(
+      (food) => `
                                     <div class="col-6">
                                         <a class="menu_item modal_dialog" href="#">
                                             <figure><img src="./images/image-unknown.jpg" alt="thumb" class="lazy"></figure>
@@ -87,17 +88,17 @@ const createRestaurantDetailTemplate = (restaurantDetail) => {
                                             <strong>Rp. -</strong>
                                         </a>
                                     </div>
-                                `
-                                    )
-                                    .join('')}
+                                `,
+    )
+    .join('')}
                             </div>
                         </section>
                         <section id="section-2">
                             <h4>Drink Menu</h4>
                             <div class="row">
                                 ${menus.drinks
-                                    .map(
-                                        (drink) => `
+    .map(
+      (drink) => `
                                     <div class="col-6">
                                         <a class="menu_item modal_dialog" href="#">
                                             <figure><img src="./images/image-unknown.jpg" alt="thumb" class="lazy"></figure>
@@ -106,9 +107,9 @@ const createRestaurantDetailTemplate = (restaurantDetail) => {
                                             <strong>Rp. -</strong>
                                         </a>
                                     </div>
-                                `
-                                    )
-                                    .join('')}
+                                `,
+    )
+    .join('')}
                             </div>
                         </section>
                     </div>
@@ -144,9 +145,9 @@ const createRestaurantDetailTemplate = (restaurantDetail) => {
 };
 
 const createCustomerReviewTemplate = (customerReview) => {
-    const { name, review, date } = customerReview;
+  const { name, review, date } = customerReview;
 
-    return `
+  return `
         <div class="review_card">
             <div class="row">
                 <div class="col-2 user_info">
@@ -162,16 +163,14 @@ const createCustomerReviewTemplate = (customerReview) => {
     `;
 };
 
-const createNotificationTemplate = () => {
-    return `
+const createNotificationTemplate = () => `
         <h3>Thank you for taking the time to leave a review!</h3>
         <p>We really appreciate your feedback and we're glad that you enjoyed your experience with our restaurant. Your input helps us to continue improving and providing the best possible experience for our customers. Thanks again, and we hope to see you again soon!</p>
     `;
-};
 
 export {
-    createRestaurantItemTemplate,
-    createRestaurantDetailTemplate,
-    createCustomerReviewTemplate,
-    createNotificationTemplate,
+  createRestaurantItemTemplate,
+  createRestaurantDetailTemplate,
+  createCustomerReviewTemplate,
+  createNotificationTemplate,
 };
