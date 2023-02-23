@@ -37,8 +37,20 @@ class App {
   async renderPage() {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
+    await this._setHeaderClass();
     this._content.innerHTML = await page.render();
     await page.afterRender();
+  }
+
+  async _setHeaderClass() {
+    const url = UrlParser.parseActiveUrlWithCombiner();
+    if (url === '/favorite') {
+      this._header.classList.remove('header');
+      this._header.classList.add('header_in');
+    } else {
+      this._header.classList.remove('header_in');
+      this._header.classList.add('header');
+    }
   }
 }
 

@@ -83,6 +83,34 @@ figure {
 }
 
 header {
+    &.header_in {
+		background-color: #fff;
+		position: relative;
+		border-bottom: 1px solid #ededed;
+        &.app-bar {
+            .logo_normal {
+                display: none;
+            }
+            .logo_sticky {
+                display: inline-block;
+            }
+        }
+        .main-menu {
+            .logo_normal {
+				display: none;
+			}
+			.logo_sticky {
+				display: inline-block;
+			}
+			& > ul {
+				& > li {
+					& > a {
+						color: #222;
+					}
+				}
+			}
+		}
+	}
 	&.sticky {
 		transition: all 0.3s ease-in-out;
 		border-bottom: 1px solid #ededed;

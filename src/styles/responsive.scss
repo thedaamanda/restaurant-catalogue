@@ -35,6 +35,15 @@ $background-color_3: #e54750;
 			}
 		}
 	}
+    header.header_in {
+        .menu-mobile {
+            a {
+                svg {
+                    fill: #000;
+                }
+            }
+        }
+    }
 	header.sticky {
 		.menu-mobile {
 			a {
@@ -172,6 +181,15 @@ $background-color_3: #e54750;
 			}
 		}
 	}
+    .col-8.search-filter {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .col-4.search-filter {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }
 
 @media only screen and (max-width: 768px) {

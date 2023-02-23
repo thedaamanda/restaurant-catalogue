@@ -221,6 +221,11 @@ a {
 	max-width: 20%;
 }
 
+.col-4 {
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+
 .col-8 {
 	flex: 0 0 70%;
 	max-width: 70%;
@@ -352,5 +357,86 @@ a.btn_1:hover,
 		display: block;
 		top: 50%;
 		transform: translateY(-50%);
+	}
+    &:hover {
+        transform: scale(1.1);
+        &:after {
+            filter: invert(50%) sepia(98%) saturate(3539%) hue-rotate(328deg) brightness(90%) contrast(99%);
+        }
+    }
+}
+
+.like {
+    &:after {
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24' fill='currentColor' class='w-6 h-6'%3E%3Cpath d='M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z' /%3E%3C/svg%3E%0A");
+		filter: invert(50%) sepia(98%) saturate(3539%) hue-rotate(328deg) brightness(90%) contrast(99%) !important;
+		position: relative;
+		display: block;
+		top: 50%;
+		transform: translateY(-50%);
+    }
+}
+
+.page_header {
+	padding: 20px 0 20px 0;
+	background-color: #f4f4f4;
+	h1 {
+		font-size: 16px;
+		font-size: 1rem;
+		margin: 0;
+	}
+	.align_self_center {
+		align-self: center;
+	}
+}
+
+.search_bar_list {
+	position: relative;
+	input[type='text'] {
+		border: 0;
+		height: 40px;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		-ms-border-radius: 3px;
+		border-radius: 3px;
+		padding-left: 15px;
+		-webkit-box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.05);
+		-moz-box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.05);
+		box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.05);
+	}
+	input[type='text']:focus {
+		-webkit-box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.08);
+		-moz-box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.08);
+		box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.08);
+	}
+	button[type='submit'] {
+		background-color: #fff;
+		position: absolute;
+		color: #999;
+		top: 1px;
+		right: 10px;
+		border: 0;
+		height: 38px;
+		cursor: pointer;
+		-moz-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		-webkit-transition: all 0.3s ease-in-out;
+		-ms-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+		font-size: 18px;
+		font-size: 1.125rem;
+		outline: none;
+	}
+	button[type='submit']:hover {
+		color: #e54750;
+	}
+	button[type='submit']:focus {
+		box-shadow: none;
+	}
+	.icon_search {
+		content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z' /%3E%3C/svg%3E%0A");
+		filter: invert(24%) sepia(5%) saturate(6%) hue-rotate(329deg) brightness(96%) contrast(89%);
+		position: relative;
+		display: block;
 	}
 }

@@ -163,6 +163,14 @@ const createCustomerReviewTemplate = (customerReview) => {
     `;
 };
 
+const createLikeButtonTemplate = () => `
+    <div class="favorite-button" id="likeButton"></div>
+`;
+
+const createLikedButtonTemplate = () => `
+    <div class="favorite-button like" id="likeButton"></div>
+`;
+
 const createNotificationTemplate = () => `
         <h3>Thank you for taking the time to leave a review!</h3>
         <p>We really appreciate your feedback and we're glad that you enjoyed your experience with our restaurant. Your input helps us to continue improving and providing the best possible experience for our customers. Thanks again, and we hope to see you again soon!</p>
@@ -172,5 +180,7 @@ export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
   createCustomerReviewTemplate,
+  createLikeButtonTemplate,
+  createLikedButtonTemplate,
   createNotificationTemplate,
 };
