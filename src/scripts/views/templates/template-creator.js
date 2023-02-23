@@ -189,6 +189,57 @@ const createNotFoundTemplate = () => `
     </div>
 `;
 
+const createSkeletonRestaurantItemTemplate = (count) => {
+  let restaurantItem = '';
+  for (let i = 0; i < count; i++) {
+    restaurantItem += `
+            <div class="item-list">
+                <div class="strip">
+                    <figure>
+                        <img src="./images/skeleton.png" class="img-fluid lazy" alt="skeleton">
+                        <a href="#" class="strip_info skeleton-box"></a>
+                    </figure>
+                    <ul>
+                        <li>
+                            <span class="city skeleton-box"></span>
+                        </li>
+                        <li>
+                            <span class="rating skeleton-box"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `;
+  }
+  return restaurantItem;
+};
+
+const createSkeletonRestaurantTopRatedItemTemplate = () => {
+  let restaurantItem = '';
+  for (let i = 0; i < 2; i++) {
+    restaurantItem += `
+            <div class="col-6">
+                <div class="list_top_rated">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <figure>
+                                    <img src="./images/skeleton.png" class="img-fluid lazy skeleton-box" width="350" height="233" alt="skeleton">
+                                </figure>
+                                <span class="rating skeleton-box">restaurant.rating</span>
+                                <div class="skeleton-box mb">restaurant.city</div>
+                                <h3 class="skeleton-box">restaurant.name</h3>
+                                <small class="skeleton-box w-100">restaurant.description <br> restaurant.description</small>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `;
+  }
+  return restaurantItem;
+};
+
 export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
@@ -197,4 +248,6 @@ export {
   createLikedButtonTemplate,
   createNotificationTemplate,
   createNotFoundTemplate,
+  createSkeletonRestaurantItemTemplate,
+  createSkeletonRestaurantTopRatedItemTemplate,
 };
