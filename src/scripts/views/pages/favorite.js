@@ -13,8 +13,8 @@ const Favorite = {
                     </div>
                     <div class="col-4 search-filter">
                         <div class="search_bar_list">
-                            <input type="text" class="form-control" placeholder="Search Favorite Restaurant">
-                            <button type="submit"><i class="icon_search"></i></button>
+                            <input type="text" name="query_favorite" class="form-control" placeholder="Search Favorite Restaurant">
+                            <button type="submit" id="btn-search-favorite"><i class="icon_search"></i></button>
                         </div>
                     </div>
                 </div>
@@ -30,6 +30,20 @@ const Favorite = {
 
   async afterRender() {
     const favoriteResturants = await FavoriteRestaurantIdb.getAllRestaurants();
+    const favoriteRestaurantListElement = document.querySelector('favorite-restaurant-list');
+    favoriteRestaurantListElement.restaurants = favoriteResturants;
+
+    const searchButtonElement = document.querySelector('#btn-search-favorite');
+    searchButtonElement.addEventListener('click', async () => {
+      this.searchFavoriteRestaurant();
+    });
+  },
+
+  async searchFavoriteRestaurant() {
+    const searchElement = document.querySelector('input[name=query_favorite]');
+    const query = searchElement.value;
+
+    const favoriteResturants = await FavoriteRestaurantIdb.searchRestaurants(query);
     const favoriteRestaurantListElement = document.querySelector('favorite-restaurant-list');
     favoriteRestaurantListElement.restaurants = favoriteResturants;
   },

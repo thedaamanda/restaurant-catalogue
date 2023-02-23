@@ -6,7 +6,6 @@ const NavigatorInitiator = {
   },
 
   _stickyHeader(header) {
-    // check if header has class sticky
     if (header.classList.contains('header')) {
       if (window.scrollY > 0) {
         header.classList.add('sticky');

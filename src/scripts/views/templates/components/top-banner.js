@@ -40,8 +40,6 @@ class TopBanner extends HTMLElement {
       const query = searchElement.value;
       const restaurants = await RestaurantApiSource.searchRestaurant(query);
       const restaurantListElement = document.querySelector('restaurant-list');
-      restaurantListElement.classList.add('list');
-      restaurantListElement.id = 'restaurant-list';
       restaurantListElement.restaurants = restaurants.restaurants;
     });
   }

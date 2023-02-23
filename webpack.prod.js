@@ -1,6 +1,8 @@
-const common = require('./webpack.common');
 const { merge } = require('webpack-merge');
+const path = require('path');
+const common = require('./webpack.common');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'production',
@@ -31,6 +33,10 @@ module.exports = merge(common, {
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'app.bundle.css',
+        }),
+        new WorkboxWebpackPlugin.InjectManifest({
+            swSrc: path.resolve(__dirname, 'src/scripts/sw.js'),
+            swDest: './sw.bundle.js',
         }),
     ],
 });
