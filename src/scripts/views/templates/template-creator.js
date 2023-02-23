@@ -176,6 +176,19 @@ const createNotificationTemplate = () => `
         <p>We really appreciate your feedback and we're glad that you enjoyed your experience with our restaurant. Your input helps us to continue improving and providing the best possible experience for our customers. Thanks again, and we hope to see you again soon!</p>
     `;
 
+const createNotFoundTemplate = () => `
+    <div class="bg-gray">
+        <div id="error_page">
+            <div class="container">
+                <div class="row-center">
+                    <figure><img src="./images/404.svg" alt="" class="img-fluid" width="550" height="234"></figure>
+                    <p>We're sorry, but the page you were looking for doesn't exist.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
 export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
@@ -183,4 +196,5 @@ export {
   createLikeButtonTemplate,
   createLikedButtonTemplate,
   createNotificationTemplate,
+  createNotFoundTemplate,
 };

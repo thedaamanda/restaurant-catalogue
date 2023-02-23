@@ -43,7 +43,7 @@ class App {
   async _setHeaderClass() {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
-    if (url === '/favorite' || !page) {
+    if (url === '/favorite' || url === '/detail/:id' || !page) {
       this._header.classList.remove('header');
       this._header.classList.add('header_in');
     } else {

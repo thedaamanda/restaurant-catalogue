@@ -218,6 +218,18 @@ $background-color_3: #e54750;
             font-size: 1.25rem;
         }
     }
+    #error_page {
+		img {
+			width: 280px;
+			height: auto;
+		}
+		p {
+			font-size: 18px;
+			font-size: 1.125rem;
+		}
+		padding: 60px 0 0 0;
+		height: 500px;
+	}
 }
 
 @media only screen and (max-width: 575px) {

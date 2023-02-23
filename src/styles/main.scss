@@ -745,3 +745,15 @@ footer {
 		transform: translateY(-50%);
 	}
 }
+
+#error_page {
+	width: 100%;
+	height: 580px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	p {
+		font-size: 21px;
+		font-size: 1.3125rem;
+	}
+}

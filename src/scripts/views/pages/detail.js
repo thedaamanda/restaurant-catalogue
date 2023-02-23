@@ -1,6 +1,6 @@
 import RestaurantApiSource from '../../data/restaurant-api-source';
 import UrlParser from '../../routes/url-parser';
-import { createNotificationTemplate } from '../templates/template-creator';
+import { createNotificationTemplate, createNotFoundTemplate } from '../templates/template-creator';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
 import '../templates/components/restaurant-detail';
 import '../templates/components/review-item';
@@ -8,46 +8,55 @@ import '../templates/components/review-item';
 const Detail = {
   async render() {
     return `
-            <restaurant-detail></restaurant-detail>
-            <div id="likeButtonContainer"></div>
-        `;
+        <div class="detail-page"></div>
+    `;
   },
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantApiSource.detailRestaurant(url.id);
-    const restaurantDetailElement = document.querySelector('restaurant-detail');
-    restaurantDetailElement.restaurant = restaurant.restaurant;
+    const detailPage = document.querySelector('.detail-page');
 
-    const reviews = restaurant.restaurant.customerReviews;
-    const reviewContainer = document.querySelector('#reviews');
-    reviews.forEach((review) => {
-      const reviewElement = document.createElement('review-item');
-      reviewElement.reviews = review;
-      reviewContainer.appendChild(reviewElement);
-    });
+    if (restaurant.error) {
+      detailPage.innerHTML = createNotFoundTemplate();
+    } else {
+      detailPage.innerHTML = `
+            <restaurant-detail></restaurant-detail>
+            <div id="likeButtonContainer"></div>
+        `;
 
-    const reviewForm = document.querySelector('#review-form');
-    reviewForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      this._submitReview({
-        id: url.id,
-        name: reviewForm.querySelector('#input-name').value,
-        review: reviewForm.querySelector('#input-review').value,
+      const restaurantDetailElement = document.querySelector('restaurant-detail');
+      restaurantDetailElement.restaurant = restaurant.restaurant;
+      const reviews = restaurant.restaurant.customerReviews;
+      const reviewContainer = document.querySelector('#reviews');
+      reviews.forEach((review) => {
+        const reviewElement = document.createElement('review-item');
+        reviewElement.reviews = review;
+        reviewContainer.appendChild(reviewElement);
       });
-    });
 
-    LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant: {
-        id: restaurant.restaurant.id,
-        name: restaurant.restaurant.name,
-        description: restaurant.restaurant.description,
-        pictureId: restaurant.restaurant.pictureId,
-        city: restaurant.restaurant.city,
-        rating: restaurant.restaurant.rating,
-      },
-    });
+      const reviewForm = document.querySelector('#review-form');
+      reviewForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        this._submitReview({
+          id: url.id,
+          name: reviewForm.querySelector('#input-name').value,
+          review: reviewForm.querySelector('#input-review').value,
+        });
+      });
+
+      LikeButtonInitiator.init({
+        likeButtonContainer: document.querySelector('#likeButtonContainer'),
+        restaurant: {
+          id: restaurant.restaurant.id,
+          name: restaurant.restaurant.name,
+          description: restaurant.restaurant.description,
+          pictureId: restaurant.restaurant.pictureId,
+          city: restaurant.restaurant.city,
+          rating: restaurant.restaurant.rating,
+        },
+      });
+    }
   },
 
   async _submitReview(review) {
