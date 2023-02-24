@@ -81,7 +81,7 @@ const createRestaurantDetailTemplate = (restaurantDetail) => {
     .map(
       (food) => `
                                     <div class="col-6">
-                                        <a class="menu_item modal_dialog" href="#">
+                                        <a class="menu_item modal_dialog" href="javascript:void(0);">
                                             <figure><img src="./images/image-unknown.jpg" alt="thumb" class="lazy"></figure>
                                             <h3>${food.name}</h3>
                                             <p>Lorem ipsum dolor sit amet.</p>
@@ -100,7 +100,7 @@ const createRestaurantDetailTemplate = (restaurantDetail) => {
     .map(
       (drink) => `
                                     <div class="col-6">
-                                        <a class="menu_item modal_dialog" href="#">
+                                        <a class="menu_item modal_dialog" href="javascript:void(0);">
                                             <figure><img src="./images/image-unknown.jpg" alt="thumb" class="lazy"></figure>
                                             <h3>${drink.name}</h3>
                                             <p>Lorem ipsum dolor sit amet.</p>
