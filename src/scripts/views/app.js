@@ -67,6 +67,13 @@ class App {
         this._content.focus();
       });
     }
+
+    await this._closeDrawer();
+  }
+
+  async _closeDrawer() {
+    this._drawer.classList.remove('show');
+    this._layer.classList.remove('layer-is-visible');
   }
 }
 

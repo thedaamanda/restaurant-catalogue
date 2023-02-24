@@ -1,6 +1,6 @@
 import '../templates/components/favorite-restaurant-list';
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
-import { createSkeletonRestaurantItemTemplate } from '../templates/template-creator';
+import { createEmptyRestaurantTemplate, createSkeletonRestaurantItemTemplate } from '../templates/template-creator';
 
 const Favorite = {
   async render() {
@@ -20,7 +20,7 @@ const Favorite = {
                 </div>
             </div>
         </div>
-        <div class="container margin_30_60">
+        <div class="container margin_30_60" id="favorite-container">
             <favorite-restaurant-list class="list" id="favorite-restaurant-list">
                 ${createSkeletonRestaurantItemTemplate(9)}
             </favorite-restaurant-list>
@@ -30,8 +30,14 @@ const Favorite = {
 
   async afterRender() {
     const favoriteResturants = await FavoriteRestaurantIdb.getAllRestaurants();
-    const favoriteRestaurantListElement = document.querySelector('favorite-restaurant-list');
-    favoriteRestaurantListElement.restaurants = favoriteResturants;
+
+    if (favoriteResturants.length === 0) {
+      const favoriteContainer = document.querySelector('#favorite-container');
+      favoriteContainer.innerHTML = createEmptyRestaurantTemplate();
+    } else {
+      const favoriteRestaurantListElement = document.querySelector('favorite-restaurant-list');
+      favoriteRestaurantListElement.restaurants = favoriteResturants;
+    }
 
     const searchButtonElement = document.querySelector('#btn-search-favorite');
     searchButtonElement.addEventListener('click', async () => {

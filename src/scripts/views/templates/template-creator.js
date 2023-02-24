@@ -189,6 +189,19 @@ const createNotFoundTemplate = () => `
     </div>
 `;
 
+const createEmptyRestaurantTemplate = () => `
+    <div class="bg-gray">
+        <div id="error_page" class="empty">
+            <div class="container">
+                <div class="row-center">
+                    <figure><img src="./images/empty.svg" alt="" class="img-fluid" width="550" height="234"></figure>
+                    <p>You don't have any favorite restaurants yet. Find your new favorite restaurant and like it as a favorite to easily access it later!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
 const createSkeletonRestaurantItemTemplate = (count) => {
   let restaurantItem = '';
   for (let i = 0; i < count; i++) {
@@ -248,6 +261,7 @@ export {
   createLikedButtonTemplate,
   createNotificationTemplate,
   createNotFoundTemplate,
+  createEmptyRestaurantTemplate,
   createSkeletonRestaurantItemTemplate,
   createSkeletonRestaurantTopRatedItemTemplate,
 };

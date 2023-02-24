@@ -42,6 +42,11 @@ const Detail = {
           id: url.id,
           name: reviewForm.querySelector('#input-name').value,
           review: reviewForm.querySelector('#input-review').value,
+          date: new Date().toLocaleDateString('id-ID', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+          }),
         });
       });
 
@@ -67,20 +72,14 @@ const Detail = {
     notification.classList.add('show');
     notification.style.backgroundColor = '#8EC343';
     this._resetForm();
-    this._refreshCustomerReviews();
+    this._addReviewToCustomerReviews(review);
   },
 
-  async _refreshCustomerReviews() {
-    const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const restaurant = await RestaurantApiSource.detailRestaurant(url.id);
-    const reviews = restaurant.restaurant.customerReviews;
+  async _addReviewToCustomerReviews(review) {
     const reviewContainer = document.querySelector('#reviews');
-    reviewContainer.innerHTML = '';
-    reviews.forEach((review) => {
-      const reviewElement = document.createElement('review-item');
-      reviewElement.reviews = review;
-      reviewContainer.appendChild(reviewElement);
-    });
+    const reviewElement = document.createElement('review-item');
+    reviewElement.reviews = review;
+    reviewContainer.appendChild(reviewElement);
   },
 
   async _resetForm() {
