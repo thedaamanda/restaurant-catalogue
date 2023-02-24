@@ -256,7 +256,7 @@ label {
 	display: block;
 	width: 100%;
 	padding: 10px;
-	height: 40px;
+    height: 50px;
 	font-size: 14px;
 	font-size: 0.875rem;
 	border-radius: 3px;
@@ -280,6 +280,7 @@ a.btn_1,
 	padding: 8px 25px;
 	color: #fff;
 	font-weight: 500;
+    height: 50px;
 	text-align: center;
 	font-size: 14px;
 	font-size: 0.875rem;
@@ -394,7 +395,8 @@ a.btn_1:hover,
 	position: relative;
 	input[type='text'] {
 		border: 0;
-		height: 40px;
+        min-width: 44px;
+		min-height: 44px;
 		-webkit-border-radius: 3px;
 		-moz-border-radius: 3px;
 		-ms-border-radius: 3px;
@@ -414,10 +416,12 @@ a.btn_1:hover,
 		position: absolute;
 		color: #999;
 		top: 1px;
-		right: 10px;
+		right: 0;
 		border: 0;
-		height: 38px;
+        min-width: 48px;
+		min-height: 48px;
 		cursor: pointer;
+        text-align: -webkit-center;
 		-moz-transition: all 0.3s ease-in-out;
 		-o-transition: all 0.3s ease-in-out;
 		-webkit-transition: all 0.3s ease-in-out;
@@ -434,7 +438,7 @@ a.btn_1:hover,
 		box-shadow: none;
 	}
 	.icon_search {
-		content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z' /%3E%3C/svg%3E%0A");
+		content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28px' height='28px' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z' /%3E%3C/svg%3E%0A");
 		filter: invert(24%) sepia(5%) saturate(6%) hue-rotate(329deg) brightness(96%) contrast(89%);
 		position: relative;
 		display: block;
