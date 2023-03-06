@@ -9,9 +9,11 @@ const createRestaurantItemTemplate = (restaurantItem) => {
         <div class="item-list">
             <div class="strip">
                 <figure>
-                    <img src="${
-  CONFIG.BASE_IMAGE_URL + pictureId
-}" class="img-fluid lazy" alt="${name}">
+                    <picture class="lazyload">
+                        <source data-srcset="${CONFIG.BASE_IMAGE_URL.SMALL + pictureId}" media="(max-width: 375px)" type="image/jpg">
+                        <source data-srcset="${CONFIG.BASE_IMAGE_URL.MEDIUM + pictureId}" media="(max-width: 992px)" type="image/jpg">
+                        <img src="${CONFIG.BASE_IMAGE_URL.SMALL + pictureId}" class="img-fluid" alt="${name}">
+                    </picture>
                     <a href="/#/detail/${id}" class="strip_info">
                         <small>Resto</small>
                         <div class="item_title">

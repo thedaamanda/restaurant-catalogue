@@ -214,7 +214,7 @@ header {
     color: #fff;
     &.image {
         height: 620px;
-        background: #faf3cc url(../../src/public/images/hero/hero-image.jpg) center center;
+        background: #faf3cc url(/src/public/images/hero/hero-image.jpg) center center;
         background-size: cover;
     }
     .opacity-mask {

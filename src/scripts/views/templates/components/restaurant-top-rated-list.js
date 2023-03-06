@@ -30,11 +30,11 @@ class RestaurantTopRatedList extends HTMLElement {
                   <li>
                       <a href="/#/detail/${restaurant.id}">
                           <figure>
-                              <img src="${
-  CONFIG.BASE_IMAGE_URL + restaurant.pictureId
-}" alt="${
-  restaurant.name
-}" class="lazy" width="350" height="233">
+                            <picture class="lazyload">
+                                <source data-srcset="${CONFIG.BASE_IMAGE_URL.SMALL + restaurant.pictureId}" media="(max-width: 375px)" type="image/jpg">
+                                <source data-srcset="${CONFIG.BASE_IMAGE_URL.MEDIUM + restaurant.pictureId}" media="(max-width: 992px)" type="image/jpg">
+                                <img src="${CONFIG.BASE_IMAGE_URL.SMALL + restaurant.pictureId}" class="img-fluid" alt="${restaurant.name}" width="350" height="233">
+                            </picture>
                           </figure>
                           <span class="rating">${restaurant.rating}</span>
                           <em>${restaurant.city}</em>
