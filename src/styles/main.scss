@@ -1,4 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
+
+$breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+);
+
+@mixin breakpoint($tipe, $key) {
+    @if $tipe == "min" {
+        @media screen and (min-width: map-get($breakpoints, $key)) {
+            @content;
+        }
+    } @else if $tipe == "max" {
+        @media screen and (max-width: map-get($breakpoints, $key)) {
+            @content;
+        }
+    }
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -193,8 +214,7 @@ header {
     color: #fff;
     &.image {
         height: 620px;
-        background: #faf3cc url(/src/public/images/hero-image.jpeg) center
-            center;
+        background: #faf3cc url(../../src/public/images/hero/hero-image.jpg) center center;
         background-size: cover;
     }
     .opacity-mask {
@@ -216,6 +236,23 @@ header {
             font-size: 1.75rem;
             font-weight: 300;
             display: block;
+        }
+    }
+}
+
+@include breakpoint("max", "xl") {
+    .hero {
+        &.image {
+            background: #faf3cc url(/src/public/images/hero/hero-image.jpg) center center;
+        }
+    }
+}
+
+@include breakpoint("max", "md") {
+    .hero {
+        &.image {
+            background: #faf3cc url(/src/public/images/hero/hero-image-large.jpg) center center;
+            background-size: cover;
         }
     }
 }
