@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
+const ImageminMozjpeg = require('imagemin-mozjpeg');
 
 module.exports = {
     entry: {
@@ -104,6 +106,14 @@ module.exports = {
                     ios: true,
                     purpose: 'maskable',
                 },
+            ],
+        }),
+        new ImageminWebpackPlugin({
+            plugins: [
+              ImageminMozjpeg({
+                quality: 50,
+                progressive: true,
+              }),
             ],
         }),
     ],
