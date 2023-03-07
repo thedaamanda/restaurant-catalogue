@@ -11,7 +11,7 @@ Scenario('showing a review', async ({ I }) => {
 
     I.seeElement('#restaurant-list a');
     I.click(locate('#restaurant-list a').first());
-    I.seeElement('#reviews');
+    I.retry(3).seeElement('#reviews');
 });
 
 Scenario('add a review', async ({ I }) => {

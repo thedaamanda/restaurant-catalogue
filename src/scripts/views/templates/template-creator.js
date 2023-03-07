@@ -166,11 +166,11 @@ const createCustomerReviewTemplate = (customerReview) => {
 };
 
 const createLikeButtonTemplate = () => `
-    <div class="favorite-button" id="likeButton"></div>
+    <div class="favorite-button" id="likeButton" aria-label="like this restaurant"></div>
 `;
 
 const createLikedButtonTemplate = () => `
-    <div class="favorite-button like" id="likeButton"></div>
+    <div class="favorite-button like" id="likeButton" aria-label="unlike this restaurant"></div>
 `;
 
 const createNotificationTemplate = () => `
