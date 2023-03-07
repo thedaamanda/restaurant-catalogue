@@ -3,6 +3,8 @@ const path = require('path');
 const common = require('./webpack.common');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'production',
@@ -30,6 +32,16 @@ module.exports = merge(common, {
             },
         ],
     },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            minSize: 20000,
+            maxSize: 30000,
+            minChunks: 1,
+            maxAsyncRequests: 5,
+            maxInitialRequests: 3,
+        },
+    },
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'app.bundle.css',
@@ -38,5 +50,10 @@ module.exports = merge(common, {
             swSrc: path.resolve(__dirname, 'src/scripts/sw.js'),
             swDest: './sw.bundle.js',
         }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            openAnalyzer: false,
+        }),
+        new CleanWebpackPlugin(),
     ],
 });

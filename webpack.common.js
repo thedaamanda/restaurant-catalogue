@@ -70,6 +70,15 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.resolve(__dirname, 'src/templates/index.html'),
+            inject: 'body',
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                useShortDoctype: true,
+                minifyCSS: true,
+                minifyJS: true,
+                minifyURLs: true,
+            },
         }),
         new CopyWebpackPlugin({
             patterns: [

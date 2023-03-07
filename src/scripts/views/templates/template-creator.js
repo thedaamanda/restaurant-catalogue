@@ -9,10 +9,10 @@ const createRestaurantItemTemplate = (restaurantItem) => {
         <div class="item-list">
             <div class="strip">
                 <figure>
-                    <picture class="lazyload">
+                    <picture>
                         <source data-srcset="${CONFIG.BASE_IMAGE_URL.SMALL + pictureId}" media="(max-width: 375px)" type="image/jpg">
                         <source data-srcset="${CONFIG.BASE_IMAGE_URL.MEDIUM + pictureId}" media="(max-width: 992px)" type="image/jpg">
-                        <img src="${CONFIG.BASE_IMAGE_URL.SMALL + pictureId}" class="img-fluid" alt="${name}">
+                        <img data-src="${CONFIG.BASE_IMAGE_URL.SMALL + pictureId}" class="img-fluid lazyload" alt="${name}">
                     </picture>
                     <a href="/#/detail/${id}" class="strip_info">
                         <small>Resto</small>
@@ -48,7 +48,7 @@ const createRestaurantDetailTemplate = (restaurantDetail) => {
 
   return `
         <div class="hero_in detail_page background-image" style="background:#ededed url(${
-  CONFIG.BASE_IMAGE_URL + pictureId
+  CONFIG.BASE_IMAGE_URL.MEDIUM + pictureId
 }) no-repeat center center; background-size:cover;">
             <div class="opacity-mask">
                 <div class="container margin_30_60">
@@ -131,11 +131,11 @@ const createRestaurantDetailTemplate = (restaurantDetail) => {
                         <form id="review-form">
                             <div class="form-group">
                                 <label>Your Name</label>
-                                <input class="form-control" type="text" id="input-name" placeholder="Write your name" autocomplete="off">
+                                <input class="form-control" type="text" name="name" id="input-name" placeholder="Write your name" autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label>Your Review</label>
-                                <textarea class="form-control" style="height: 180px;" id="input-review" placeholder="Write your review to help others learn about this restaurant"></textarea>
+                                <textarea class="form-control" name="review" style="height: 180px;" id="input-review" placeholder="Write your review to help others learn about this restaurant"></textarea>
                             </div>
                             <button type="submit" class="btn_1" id="submit-review">Submit review</button>
                         </form>

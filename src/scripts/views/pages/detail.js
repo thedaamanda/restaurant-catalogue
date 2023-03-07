@@ -65,7 +65,12 @@ const Detail = {
   },
 
   async _submitReview(review) {
-    await RestaurantApiSource.addReview(review);
+    await RestaurantApiSource.addReview({
+        id: review.id,
+        name: review.name,
+        review: review.review,
+    });
+
     const notification = document.querySelector('.notification');
 
     notification.innerHTML = createNotificationTemplate();
