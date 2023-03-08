@@ -1,7 +1,8 @@
 import RestaurantApiSource from '../../data/restaurant-api-source';
 import UrlParser from '../../routes/url-parser';
 import { createNotificationTemplate, createNotFoundTemplate } from '../templates/template-creator';
-import LikeButtonInitiator from '../../utils/like-button-initiator';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 import '../templates/components/restaurant-detail';
 import '../templates/components/review-item';
 
@@ -50,8 +51,9 @@ const Detail = {
         });
       });
 
-      LikeButtonInitiator.init({
+      LikeButtonPresenter.init({
         likeButtonContainer: document.querySelector('#likeButtonContainer'),
+        favoriteRestaurants: FavoriteRestaurantIdb,
         restaurant: {
           id: restaurant.restaurant.id,
           name: restaurant.restaurant.name,
@@ -66,9 +68,9 @@ const Detail = {
 
   async _submitReview(review) {
     await RestaurantApiSource.addReview({
-        id: review.id,
-        name: review.name,
-        review: review.review,
+      id: review.id,
+      name: review.name,
+      review: review.review,
     });
 
     const notification = document.querySelector('.notification');

@@ -12,21 +12,21 @@ const createRestaurantItemTemplate = (restaurantItem) => {
                     <picture>
                         <source data-srcset="${CONFIG.BASE_IMAGE_URL.SMALL + pictureId}" media="(max-width: 375px)" type="image/jpg">
                         <source data-srcset="${CONFIG.BASE_IMAGE_URL.MEDIUM + pictureId}" media="(max-width: 992px)" type="image/jpg">
-                        <img data-src="${CONFIG.BASE_IMAGE_URL.SMALL + pictureId}" class="img-fluid lazyload" alt="${name}">
+                        <img data-src="${CONFIG.BASE_IMAGE_URL.SMALL + pictureId}" class="img-fluid lazyload" alt="${name || '-'}">
                     </picture>
-                    <a href="/#/detail/${id}" class="strip_info">
+                    <a href="/#/detail/${id || '-'}" class="strip_info">
                         <small>Resto</small>
                         <div class="item_title">
-                            <h3>${name}</h3>
+                            <h3>${name || '-'}</h3>
                         </div>
                     </a>
                 </figure>
                 <ul>
                     <li>
-                        <span class="city">${city}</span>
+                        <span class="city">${city || '-'}</span>
                     </li>
                     <li>
-                        <span class="rating">${rating}</span>
+                        <span class="rating">${rating || '-'}</span>
                     </li>
                 </ul>
             </div>
