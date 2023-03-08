@@ -1,8 +1,8 @@
 import { createRestaurantItemTemplate, createEmptyRestaurantTemplate, createSkeletonRestaurantItemTemplate } from '../../templates/template-creator';
 
 class FavoriteRestaurantSearchView {
-    getTemplate() {
-        return `
+  getTemplate() {
+    return `
             <div class="page_header">
                 <div class="container">
                     <div class="row">
@@ -24,32 +24,32 @@ class FavoriteRestaurantSearchView {
                 </favorite-restaurant-list>
             </div>
         `;
+  }
+
+  runWhenUserIsSearching(callback) {
+    document.querySelector('#btn-search-favorite').addEventListener('click', callback);
+  }
+
+  showFavoriteRestaurants(restaurants = []) {
+    let html;
+
+    if (restaurants.length) {
+      html = restaurants.reduce(
+        (carry, restaurant) => carry.concat(createRestaurantItemTemplate(restaurant)),
+        '',
+      );
+    } else {
+      html = this._getEmptyRestaurantTemplate();
     }
 
-    runWhenUserIsSearching(callback) {
-        document.querySelector('#btn-search-favorite').addEventListener('click', callback);
-    }
+    document.querySelector('#favorite-restaurant-list').innerHTML = html;
 
-    showFavoriteRestaurants(restaurants = []) {
-        let html;
+    document.querySelector('#favorite-restaurant-list').dispatchEvent(new Event('restaurants:updated'));
+  }
 
-        if (restaurants.length) {
-            html = restaurants.reduce(
-                (carry, restaurant) => carry.concat(createRestaurantItemTemplate(restaurant)),
-                ''
-            );
-        } else {
-            html = this._getEmptyRestaurantTemplate();
-        }
-
-        document.querySelector('#favorite-restaurant-list').innerHTML = html;
-
-        document.querySelector('#favorite-restaurant-list').dispatchEvent(new Event('restaurants:updated'));
-    }
-
-    _getEmptyRestaurantTemplate() {
-        return createEmptyRestaurantTemplate();
-    }
+  _getEmptyRestaurantTemplate() {
+    return createEmptyRestaurantTemplate();
+  }
 }
 
 export default FavoriteRestaurantSearchView;

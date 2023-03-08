@@ -1,19 +1,19 @@
 class FavoriteRestaurantShowPresenter {
-    constructor({ view, favoriteRestaurants }) {
-        this._view = view;
-        this._favoriteRestaurants = favoriteRestaurants;
+  constructor({ view, favoriteRestaurants }) {
+    this._view = view;
+    this._favoriteRestaurants = favoriteRestaurants;
 
-        this._showFavoriteRestaurants();
-    }
+    this._showFavoriteRestaurants();
+  }
 
-    async _showFavoriteRestaurants() {
-        const restaurants = this._favoriteRestaurants.getAllRestaurants();
-        this._displayRestaurants(restaurants);
-    }
+  async _showFavoriteRestaurants() {
+    const restaurants = this._favoriteRestaurants.getAllRestaurants();
+    this._displayRestaurants(restaurants);
+  }
 
-    _displayRestaurants(restaurants) {
-        this._view.showFavoriteRestaurants(restaurants);
-    }
+  _displayRestaurants(restaurants) {
+    this._view.showFavoriteRestaurants(restaurants);
+  }
 }
 
 export default FavoriteRestaurantShowPresenter;
