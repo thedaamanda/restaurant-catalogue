@@ -219,7 +219,7 @@ header {
     color: #fff;
     &.image {
         height: 620px;
-        background: #faf3cc url(/src/public/images/hero/hero-image.jpg) center center;
+        background: #faf3cc url(/src/public/images/hero/hero-image-large.jpg) center center;
         background-size: cover;
     }
     .opacity-mask {
@@ -248,7 +248,8 @@ header {
 @include breakpoint("max", "xl") {
     .hero {
         &.image {
-            background: #faf3cc url(/src/public/images/hero/hero-image.jpg) center center;
+            background: #faf3cc url(/src/public/images/hero/hero-image-large.jpg) center center;
+            background-size: cover;
         }
     }
 }
@@ -256,7 +257,7 @@ header {
 @include breakpoint("max", "md") {
     .hero {
         &.image {
-            background: #faf3cc url(/src/public/images/hero/hero-image-large.jpg) center center;
+            background: #faf3cc url(/src/public/images/hero/hero-image-small.jpg) center center;
             background-size: cover;
         }
     }
@@ -850,7 +851,7 @@ footer {
     }
 }
 
-#preloader {
+.preloader {
     position: fixed;
     background-color: #FFF;
     background-position: center center;
@@ -864,6 +865,11 @@ footer {
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.preloader-hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .lds-roller {

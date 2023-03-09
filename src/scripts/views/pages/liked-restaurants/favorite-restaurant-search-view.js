@@ -20,7 +20,7 @@ class FavoriteRestaurantSearchView {
             </div>
             <div class="container margin_30_60" id="favorite-container">
                 <favorite-restaurant-list class="list" id="favorite-restaurant-list">
-                    ${createSkeletonRestaurantItemTemplate(9)}
+                    ${createSkeletonRestaurantItemTemplate(20)}
                 </favorite-restaurant-list>
             </div>
         `;

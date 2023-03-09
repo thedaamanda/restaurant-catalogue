@@ -1,6 +1,6 @@
 import RestaurantApiSource from '../../data/restaurant-api-source';
 import { createSkeletonRestaurantItemTemplate, createSkeletonRestaurantTopRatedItemTemplate } from '../templates/template-creator';
-import '../templates/components/top-banner';
+import '../templates/components/layouts/top-banner';
 import '../templates/components/restaurant-list';
 import '../templates/components/restaurant-top-rated-list';
 
@@ -16,7 +16,7 @@ const Home = {
                         <p tabindex="0">Find the best restaurant in your country</p>
                     </div>
                     <restaurant-list class="list" id="restaurant-list">
-                        ${createSkeletonRestaurantItemTemplate(9)}
+                        ${createSkeletonRestaurantItemTemplate(20)}
                     </restaurant-list>
                 </div>
                 <div class="bg_gray">
