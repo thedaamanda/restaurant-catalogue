@@ -2,3 +2,8 @@
 /dist
 /e2e/outputs
 .DS_Store
+.idea
+.vscode
+.env
+.test.env
+package-lock.json
