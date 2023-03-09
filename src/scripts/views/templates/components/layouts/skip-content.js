@@ -1,11 +1,11 @@
 class SkipContent extends HTMLElement {
-    connectedCallback() {
-      this.render();
-    }
-
-    render() {
-      this.innerHTML = `<a href="javascript:void(0);" class="skip-link">Skip to content</a>`;
-    }
+  connectedCallback() {
+    this.render();
   }
 
-  customElements.define('skip-content', SkipContent);
+  render() {
+    this.innerHTML = '<a href="javascript:void(0);" class="skip-link">Skip to content</a>';
+  }
+}
+
+customElements.define('skip-content', SkipContent);

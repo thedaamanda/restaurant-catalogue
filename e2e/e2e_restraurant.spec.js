@@ -23,7 +23,7 @@ Scenario('liking one restaurant', async ({ I }) => {
   I.wait(0.3);
 
   const firstRestaurant = locate('#restaurant-list a').first();
-  const firstRestaurantTitle = await I.grabTextFrom(locate('.item_title h3').first());
+  const firstRestaurantName = await I.grabTextFrom(locate('.item_title h3').first());
   I.click(firstRestaurant);
 
   I.retry(3).seeElement('#likeButton');
@@ -32,9 +32,9 @@ Scenario('liking one restaurant', async ({ I }) => {
   I.amOnPage('/#/favorite');
   I.retry(3).seeElement('.item-list');
 
-  const likedRestaurantTitle = await I.grabTextFrom('.item_title h3');
+  const likedRestaurantName = await I.grabTextFrom('.item_title h3');
 
-  assert.strictEqual(firstRestaurantTitle, likedRestaurantTitle);
+  assert.strictEqual(firstRestaurantName, likedRestaurantName);
 });
 
 Scenario('liking one top rated restaurant', async ({ I }) => {
@@ -47,7 +47,7 @@ Scenario('liking one top rated restaurant', async ({ I }) => {
 
   I.wait(0.3);
   const firstRestaurant = locate('.list_top_rated a').first();
-  const firstRestaurantTitle = await I.grabTextFrom(locate('.list_top_rated h3').first());
+  const firstRestaurantName = await I.grabTextFrom(locate('.list_top_rated h3').first());
   I.click(firstRestaurant);
 
   I.retry(3).seeElement('#likeButton');
@@ -56,9 +56,9 @@ Scenario('liking one top rated restaurant', async ({ I }) => {
   I.amOnPage('/#/favorite');
   I.retry(3).seeElement('.item-list');
 
-  const likedRestaurantTitle = await I.grabTextFrom('.item_title h3');
+  const likedRestaurantName = await I.grabTextFrom('.item_title h3');
 
-  assert.strictEqual(firstRestaurantTitle, likedRestaurantTitle);
+  assert.strictEqual(firstRestaurantName, likedRestaurantName);
 });
 
 Scenario('unliking one restaurant', async ({ I }) => {
@@ -71,7 +71,7 @@ Scenario('unliking one restaurant', async ({ I }) => {
   I.wait(0.3);
 
   const firstRestaurant = locate('#restaurant-list a').first();
-  const firstRestaurantTitle = await I.grabTextFrom(locate('.item_title h3').first());
+  const firstRestaurantName = await I.grabTextFrom(locate('.item_title h3').first());
   I.click(firstRestaurant);
 
   I.retry(3).seeElement('#likeButton');
@@ -81,7 +81,7 @@ Scenario('unliking one restaurant', async ({ I }) => {
   I.retry(3).seeElement('.item-list');
 
   const firstLikedRestaurantLink = locate('#favorite-restaurant-list a').first();
-  const firstLikedRestaurantTitle = await I.grabTextFrom('.item_title h3');
+  const firstLikedRestaurantName = await I.grabTextFrom('.item_title h3');
 
   I.click(firstLikedRestaurantLink);
 
@@ -99,7 +99,7 @@ Scenario('unliking one restaurant', async ({ I }) => {
 
   const favoriteResturantIsEmpty = await I.grabTextFrom('#error_page p');
 
-  assert.strictEqual(firstRestaurantTitle, firstLikedRestaurantTitle);
+  assert.strictEqual(firstRestaurantName, firstLikedRestaurantName);
   assert.strictEqual('You don\'t have any favorite restaurants yet. Find your new favorite restaurant and like it as a favorite to easily access it later!', favoriteResturantIsEmpty);
 });
 
@@ -120,7 +120,7 @@ Scenario('search one restaurant then like the restaurant', async ({ I }) => {
   I.wait(0.3);
 
   const firstRestaurantLink = locate('#restaurant-list a').first();
-  const firstRestaurantTitle = await I.grabTextFrom(locate('.item_title h3').first());
+  const firstRestaurantName = await I.grabTextFrom(locate('.item_title h3').first());
 
   I.click(firstRestaurantLink);
 
@@ -134,9 +134,9 @@ Scenario('search one restaurant then like the restaurant', async ({ I }) => {
   I.amOnPage('/#/favorite');
   I.retry(3).seeElement('.item-list');
 
-  const likedRestaurantTitle = await I.grabTextFrom('.item_title h3');
+  const likedRestaurantName = await I.grabTextFrom('.item_title h3');
 
-  assert.strictEqual(firstRestaurantTitle, likedRestaurantTitle);
+  assert.strictEqual(firstRestaurantName, likedRestaurantName);
 });
 
 Scenario('search for a restaurant then like the restaurant, after successfully liking, click cancel like', async ({ I }) => {
@@ -156,7 +156,7 @@ Scenario('search for a restaurant then like the restaurant, after successfully l
   I.wait(0.3);
 
   const firstRestaurantLink = locate('#restaurant-list a').first();
-  const firstRestaurantTitle = await I.grabTextFrom(locate('.item_title h3').first());
+  const firstRestaurantName = await I.grabTextFrom(locate('.item_title h3').first());
 
   I.click(firstRestaurantLink);
 
@@ -171,7 +171,7 @@ Scenario('search for a restaurant then like the restaurant, after successfully l
   I.retry(3).seeElement('.item-list');
 
   const firstLikedRestaurantLink = locate('#favorite-restaurant-list a').first();
-  const firstLikedRestaurantTitle = await I.grabTextFrom('.item_title h3');
+  const firstLikedRestaurantName = await I.grabTextFrom('.item_title h3');
 
   I.click(firstLikedRestaurantLink);
 
@@ -189,7 +189,7 @@ Scenario('search for a restaurant then like the restaurant, after successfully l
 
   const favoriteResturantIsEmpty = await I.grabTextFrom('#error_page p');
 
-  assert.strictEqual(firstRestaurantTitle, firstLikedRestaurantTitle);
+  assert.strictEqual(firstRestaurantName, firstLikedRestaurantName);
   assert.strictEqual('You don\'t have any favorite restaurants yet. Find your new favorite restaurant and like it as a favorite to easily access it later!', favoriteResturantIsEmpty);
 });
 

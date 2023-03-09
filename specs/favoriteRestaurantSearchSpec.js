@@ -46,23 +46,23 @@ describe('Searching restaurants', () => {
       expect(favoriteRestaurants.searchRestaurants).toHaveBeenCalledWith('restaurant a');
     });
 
-    it('should show the title of the found restaurants', () => {
+    it('should show the name of the found restaurants', () => {
       presenter._showFoundRestaurants([{ id: 1, name: 'Satu' }]);
 
       expect(document.querySelectorAll('.item_title h3').item(0).textContent).toEqual('Satu');
 
       presenter._showFoundRestaurants([{ id: 1, name: 'Satu' }, { id: 2, name: 'Dua' }]);
 
-      const restaurantTitles = document.querySelectorAll('.item_title h3');
-      expect(restaurantTitles.item(0).textContent).toEqual('Satu');
-      expect(restaurantTitles.item(1).textContent).toEqual('Dua');
+      const restaurantNames = document.querySelectorAll('.item_title h3');
+      expect(restaurantNames.item(0).textContent).toEqual('Satu');
+      expect(restaurantNames.item(1).textContent).toEqual('Dua');
     });
 
-    it('should show - when the restaurant returned does not contain a title', (done) => {
+    it('should show - when the restaurant returned does not contain a name', (done) => {
       document.getElementById('favorite-restaurant-list')
         .addEventListener('restaurants:updated', () => {
-          const restaurantTitles = document.querySelectorAll('.item_title h3');
-          expect(restaurantTitles.item(0).textContent).toEqual('-');
+          const restaurantNames = document.querySelectorAll('.item_title h3');
+          expect(restaurantNames.item(0).textContent).toEqual('-');
 
           done();
         });
@@ -91,10 +91,10 @@ describe('Searching restaurants', () => {
     it('should show the name of the restaurants found by Favorite Restaurants', (done) => {
       document.getElementById('favorite-restaurant-list')
         .addEventListener('restaurants:updated', () => {
-          const restaurantTitles = document.querySelectorAll('.item_title h3');
-          expect(restaurantTitles.item(0).textContent).toEqual('restaurant abc');
-          expect(restaurantTitles.item(1).textContent).toEqual('ada juga restaurant abcde');
-          expect(restaurantTitles.item(2).textContent).toEqual('ini juga boleh restaurant a');
+          const restaurantNames = document.querySelectorAll('.item_title h3');
+          expect(restaurantNames.item(0).textContent).toEqual('restaurant abc');
+          expect(restaurantNames.item(1).textContent).toEqual('ada juga restaurant abcde');
+          expect(restaurantNames.item(2).textContent).toEqual('ini juga boleh restaurant a');
           done();
         });
 
